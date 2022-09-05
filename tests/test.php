@@ -12,7 +12,7 @@
 	}
 
 	$zc = new ZC("myChart");
-	$zc->setChartType("line");
+	$zc->setChartType(\ZingChart\PHPWrapper\Types::line);
 	$zc->setTitle("PHP 5.6 render");
 	$zc->setSeriesData(0, $datay);
 	$zc->setChartHeight("400px");
