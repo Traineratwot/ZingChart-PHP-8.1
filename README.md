@@ -4,6 +4,21 @@ The purpose of this wrapper is to enable PHP users to quickly and easily create 
 
 ## Initial Setup
 
+
+```json
+{
+	"repositories":[
+		{
+			"type":"vcs",
+			"url" :"https://github.com/Traineratwot/ZingChart-PHP-8.1"
+		}
+	],
+	"require"     :{
+		"traineratwot/ZingChart-PHP-8.1":"dev-master"
+	}
+}
+```
+
 ### Manual
 
 1. Download this repo by clicking on the green "Clone or download" button near the top of this page.
