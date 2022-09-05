@@ -53,7 +53,7 @@
 			$height     = $this->height;
 			$theme      = $this->theme;
 			$fullscreen = $this->fullscreen ? 'true' : 'false';
-			$jsonConfig = json_encode($this->config);
+			$jsonConfig = json_encode($this->config, JSON_PRETTY_PRINT | 256);
 			return <<<HTML
 <script>
   zingchart.render(
@@ -218,6 +218,19 @@ HTML;
 				echo "<br><h1>Invalid number of arguments: $numArgs </h1>";
 			}
 		}
+		public function setValuesData()
+		{
+			$numArgs = func_num_args();
+			if ($numArgs === 1 && is_array(func_get_arg(0))) {
+				foreach (func_get_arg(0) as $j => $jValue) {
+					$this->setConfig('values[' . $j . ']', $jValue);
+				}
+			} elseif ($numArgs === 2) {
+				$this->setConfig('values[' . func_get_arg(0) . ']', func_get_arg(1));
+			} else {
+				echo "<br><h1>Invalid number of arguments: $numArgs </h1>";
+			}
+		}
 
 		public function setSeriesText()
 		{
@@ -234,6 +247,7 @@ HTML;
 				echo "<br><h1>Invalid number of arguments: $numArgs </h1>";
 			}
 		}
+
 		public function setSeriesBgColor()
 		{
 			$numArgs = func_num_args();
@@ -249,6 +263,7 @@ HTML;
 				echo "<br><h1>Invalid number of arguments: $numArgs </h1>";
 			}
 		}
+
 		public function setSeriesTooltip()
 		{
 			$numArgs = func_num_args();
@@ -264,6 +279,23 @@ HTML;
 				echo "<br><h1>Invalid number of arguments: $numArgs </h1>";
 			}
 		}
+
+		public function setSeriesTooltipText()
+		{
+			$numArgs = func_num_args();
+			if ($numArgs === 1 && is_array(func_get_arg(0))) {
+				foreach (func_get_arg(0) as $i => $iValue) {
+					$this->setConfig('series[' . $i . '].tooltip', $iValue);
+					//$this->config['series'][$i]['text'] = func_get_arg(0)[$i];
+				}
+			} elseif ($numArgs === 2) {
+				$this->setConfig('series[' . func_get_arg(0) . '].tooltipText', func_get_arg(1));
+				//$this->config['series'][func_get_arg(0)]['text'] = func_get_arg(1);
+			} else {
+				echo "<br><h1>Invalid number of arguments: $numArgs </h1>";
+			}
+		}
+
 		public function setSeriesDetached()
 		{
 			$numArgs = func_num_args();
