@@ -218,15 +218,16 @@ HTML;
 				echo "<br><h1>Invalid number of arguments: $numArgs </h1>";
 			}
 		}
+
 		public function setValuesData()
 		{
 			$numArgs = func_num_args();
 			if ($numArgs === 1 && is_array(func_get_arg(0))) {
 				foreach (func_get_arg(0) as $j => $jValue) {
-					$this->setConfig('values[' . $j . ']', $jValue);
+					$this->setConfig('options.values' . $j, $jValue);
 				}
 			} elseif ($numArgs === 2) {
-				$this->setConfig('values[' . func_get_arg(0) . ']', func_get_arg(1));
+				$this->setConfig('options.values.' . func_get_arg(0), func_get_arg(1));
 			} else {
 				echo "<br><h1>Invalid number of arguments: $numArgs </h1>";
 			}
