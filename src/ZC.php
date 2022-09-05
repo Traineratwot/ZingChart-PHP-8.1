@@ -234,6 +234,36 @@ HTML;
 				echo "<br><h1>Invalid number of arguments: $numArgs </h1>";
 			}
 		}
+		public function setSeriesBgColor()
+		{
+			$numArgs = func_num_args();
+			if ($numArgs === 1 && is_array(func_get_arg(0))) {
+				foreach (func_get_arg(0) as $i => $iValue) {
+					$this->setConfig('series[' . $i . '].backgroundColor', $iValue);
+					//$this->config['series'][$i]['text'] = func_get_arg(0)[$i];
+				}
+			} elseif ($numArgs === 2) {
+				$this->setConfig('series[' . func_get_arg(0) . '].backgroundColor', func_get_arg(1));
+				//$this->config['series'][func_get_arg(0)]['text'] = func_get_arg(1);
+			} else {
+				echo "<br><h1>Invalid number of arguments: $numArgs </h1>";
+			}
+		}
+		public function setSeriesDetached()
+		{
+			$numArgs = func_num_args();
+			if ($numArgs === 1 && is_array(func_get_arg(0))) {
+				foreach (func_get_arg(0) as $i => $iValue) {
+					$this->setConfig('series[' . $i . '].detached', $iValue);
+					//$this->config['series'][$i]['text'] = func_get_arg(0)[$i];
+				}
+			} elseif ($numArgs === 2) {
+				$this->setConfig('series[' . func_get_arg(0) . '].detached', func_get_arg(1));
+				//$this->config['series'][func_get_arg(0)]['text'] = func_get_arg(1);
+			} else {
+				echo "<br><h1>Invalid number of arguments: $numArgs </h1>";
+			}
+		}
 
 		public function setChartType(Types $type)
 		{

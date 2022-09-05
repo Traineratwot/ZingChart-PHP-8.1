@@ -27,6 +27,7 @@
 		case tree = "tree";
 		case pareto = "pareto";
 		case pie = "pie";
+		case pie3D = "pie3d";
 		case popPyramid = "pop-pyramid";
 		case radar = "radar";
 		case rankFlow = "rankflow";
