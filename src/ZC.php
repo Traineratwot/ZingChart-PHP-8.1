@@ -235,7 +235,7 @@ HTML;
 			}
 		}
 
-		public function setChartType($type)
+		public function setChartType(Types $type)
 		{
 			$this->chartType = $type;
 			$this->setConfig('type', $type);
