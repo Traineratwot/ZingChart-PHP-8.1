@@ -1,10 +1,14 @@
 {
-    "name": "zingchart/php_wrapper",
+    "name": "traineratwot/zingchart-php-8.1",
     "description": "PHP wrapper for ZingChart",
     "homepage": "https://www.zingchart.com",
     "type": "library",
     "keywords": [ "ZingChart", "charts", "graphs" ],
     "authors": [
+        {
+            "name": "Traineratwot",
+            "email": "traineratwot@yandex.ru"
+        },
         {
             "name": "ZingChart",
             "email": "support@zingchart.com"
@@ -13,8 +17,8 @@
     "license": "MIT",
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/zingchart/ZingChart-PHP"
+            "type":"vcs",
+            "url" :"https://github.com/Traineratwot/ZingChart-PHP-8.1"
         }
     ],
     "minimum-stability": "stable",
